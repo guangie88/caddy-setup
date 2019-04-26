@@ -27,7 +27,7 @@ packages:
   - cors
   - datadog
   - expires
-  - filebrowser
+  # - filebrowser (there is problem building this)
   - filter
   - forwardproxy
   - git
@@ -46,7 +46,7 @@ packages:
   - upload
   - webdav
 
-- package: full
+- package: httpfull
   plugins:
   - authz
   - awses
@@ -56,7 +56,7 @@ packages:
   - cors
   - datadog
   - expires
-  - filebrowser
+  # - filebrowser (there is problem building this)
   - filter
   - forwardproxy
   - geoip

@@ -9,7 +9,7 @@ matrix:
   - services: docker
     env:
     - BRANCH=1.0.0
-    - PACKAGE=minimum
+    - PACKAGE=lite
     - PLUGINS=cache,cors,expires,filter,forwardproxy,ipfilter,jwt,locale,login,proxyprotocol,ratelimit,realip,upload
   - services: docker
     env:
@@ -24,7 +24,7 @@ matrix:
   - services: docker
     env:
     - BRANCH=0.11.5
-    - PACKAGE=minimum
+    - PACKAGE=lite
     - PLUGINS=cache,cors,expires,filter,forwardproxy,ipfilter,jwt,locale,login,proxyprotocol,ratelimit,realip,upload
   - services: docker
     env:

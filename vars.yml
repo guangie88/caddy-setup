@@ -4,7 +4,7 @@ versions:
 - tag: "0.11.5"
 
 packages:
-- package: minimum
+- package: lite
   plugins:
   - cache
   - cors

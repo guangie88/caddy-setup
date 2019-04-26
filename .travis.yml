@@ -20,7 +20,7 @@ matrix:
     env:
     - BRANCH=1.0.0
     - PACKAGE=httpfull
-    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,restic,s3browser,upload,webdav
+    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,s3browser,upload,webdav
   - services: docker
     env:
     - BRANCH=0.11.5
@@ -35,7 +35,7 @@ matrix:
     env:
     - BRANCH=0.11.5
     - PACKAGE=httpfull
-    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,restic,s3browser,upload,webdav
+    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,s3browser,upload,webdav
   
 script:
 - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"

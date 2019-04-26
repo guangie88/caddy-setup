@@ -75,7 +75,7 @@ packages:
   - ratelimit
   - realip
   - reauth
-  - restic
+  # - restic (doesn't work also)
   - s3browser
   # - supervisor (doesn't work also)
   - upload

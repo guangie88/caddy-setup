@@ -1,0 +1,82 @@
+---
+versions:
+- tag: "1.0.0"
+- tag: "0.11.5"
+
+packages:
+- label: minimum
+  plugins:
+  - cache
+  - cors
+  - expires
+  - filter
+  - forwardproxy
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - upload
+
+- label: standard
+  plugins:
+  - cache
+  - cgi
+  - cors
+  - datadog
+  - expires
+  - filebrowser
+  - filter
+  - forwardproxy
+  - git
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - mailout
+  - minify
+  - nobots
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - reauth
+  - supervisor
+  - upload
+  - webdav
+
+- label: full
+  plugins:
+  - authz
+  - awses
+  - awslambda
+  - cache
+  - cgi
+  - cors
+  - datadog
+  - expires
+  - filebrowser
+  - filter
+  - forwardproxy
+  - geoip
+  - git
+  - gopkg
+  - grpc
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - mailout
+  - minify
+  - nobots
+  - prometheus
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - reauth
+  - restic
+  - s3browser
+  - supervisor
+  - upload
+  - webdav

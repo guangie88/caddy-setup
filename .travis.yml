@@ -1,0 +1,54 @@
+language: bash
+
+env:
+  global:
+  - IMAGE_NAME=${DOCKER_USERNAME}/caddy
+
+matrix:
+  include:
+  - services: docker
+    env:
+    - BRANCH=1.0.0
+    - LABEL=minimum
+    - PLUGINS=cache,cors,expires,filter,forwardproxy,ipfilter,jwt,locale,login,proxyprotocol,ratelimit,realip,upload
+  - services: docker
+    env:
+    - BRANCH=1.0.0
+    - LABEL=standard
+    - PLUGINS=cache,cgi,cors,datadog,expires,filebrowser,filter,forwardproxy,git,ipfilter,jwt,locale,login,mailout,minify,nobots,proxyprotocol,ratelimit,realip,reauth,supervisor,upload,webdav
+  - services: docker
+    env:
+    - BRANCH=1.0.0
+    - LABEL=full
+    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filebrowser,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,restic,s3browser,supervisor,upload,webdav
+  - services: docker
+    env:
+    - BRANCH=0.11.5
+    - LABEL=minimum
+    - PLUGINS=cache,cors,expires,filter,forwardproxy,ipfilter,jwt,locale,login,proxyprotocol,ratelimit,realip,upload
+  - services: docker
+    env:
+    - BRANCH=0.11.5
+    - LABEL=standard
+    - PLUGINS=cache,cgi,cors,datadog,expires,filebrowser,filter,forwardproxy,git,ipfilter,jwt,locale,login,mailout,minify,nobots,proxyprotocol,ratelimit,realip,reauth,supervisor,upload,webdav
+  - services: docker
+    env:
+    - BRANCH=0.11.5
+    - LABEL=full
+    - PLUGINS=authz,awses,awslambda,cache,cgi,cors,datadog,expires,filebrowser,filter,forwardproxy,geoip,git,gopkg,grpc,ipfilter,jwt,locale,login,mailout,minify,nobots,prometheus,proxyprotocol,ratelimit,realip,reauth,restic,s3browser,supervisor,upload,webdav
+  
+script:
+- docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
+- FULL_IMAGE_NAME=guangie88/caddy:${BRANCH}_{LABEL}
+- |-
+  docker build \
+    -f Dockerfile-no-stats \
+    -t ${FULL_IMAGE_NAME} \
+    --build-arg plugins=${PLUGINS} \
+    github.com/abiosoft/caddy-docker.git#${BRANCH}
+# Just push, doesn't matter if it's TRAVIS_PULL_REQUEST false/true
+- docker push ${FULL_IMAGE_NAME}
+
+branches:
+  only:
+  - master

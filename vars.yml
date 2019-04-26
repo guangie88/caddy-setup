@@ -4,7 +4,7 @@ versions:
 - tag: "0.11.5"
 
 packages:
-- label: minimum
+- package: minimum
   plugins:
   - cache
   - cors
@@ -20,7 +20,7 @@ packages:
   - realip
   - upload
 
-- label: standard
+- package: standard
   plugins:
   - cache
   - cgi
@@ -46,7 +46,7 @@ packages:
   - upload
   - webdav
 
-- label: full
+- package: full
   plugins:
   - authz
   - awses

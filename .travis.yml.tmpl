@@ -11,14 +11,14 @@ matrix:
   - services: docker
     env:
     - BRANCH={{ v.tag }}
-    - LABEL={{ p.label }}
+    - PACKAGE={{ p.package }}
     - PLUGINS={{ p.plugins | join(',') }}
 {%- endfor %}
 {%- endfor %}
   
 script:
 - docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
-- FULL_IMAGE_NAME=guangie88/caddy:${BRANCH}_{LABEL}
+- FULL_IMAGE_NAME=guangie88/caddy:${BRANCH}_${PACKAGE}
 - |-
   docker build \
     -f Dockerfile-no-stats \

@@ -42,7 +42,7 @@ packages:
   - ratelimit
   - realip
   - reauth
-  - supervisor
+  # - supervisor (doesn't work also)
   - upload
   - webdav
 
@@ -77,6 +77,6 @@ packages:
   - reauth
   - restic
   - s3browser
-  - supervisor
+  # - supervisor (doesn't work also)
   - upload
   - webdav

@@ -1,0 +1,82 @@
+---
+versions:
+- tag: "1.0.0"
+- tag: "0.11.5"
+
+packages:
+- package: lite
+  plugins:
+  - cache
+  - cors
+  - expires
+  - filter
+  - forwardproxy
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - upload
+
+- package: standard
+  plugins:
+  - cache
+  - cgi
+  - cors
+  - datadog
+  - expires
+  # - filebrowser (there is problem building this)
+  - filter
+  - forwardproxy
+  - git
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - mailout
+  - minify
+  - nobots
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - reauth
+  # - supervisor (doesn't work also)
+  - upload
+  - webdav
+
+- package: httpfull
+  plugins:
+  - authz
+  - awses
+  - awslambda
+  - cache
+  - cgi
+  - cors
+  - datadog
+  - expires
+  # - filebrowser (there is problem building this)
+  - filter
+  - forwardproxy
+  - geoip
+  - git
+  - gopkg
+  - grpc
+  - ipfilter
+  - jwt
+  - locale
+  - login
+  - mailout
+  - minify
+  - nobots
+  - prometheus
+  - proxyprotocol
+  - ratelimit
+  - realip
+  - reauth
+  # - restic (doesn't work also)
+  - s3browser
+  # - supervisor (doesn't work also)
+  - upload
+  - webdav

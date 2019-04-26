@@ -1,0 +1,33 @@
+language: bash
+
+env:
+  global:
+  - IMAGE_NAME=${DOCKER_USERNAME}/caddy
+
+matrix:
+  include:
+{%- for v in versions %}
+{%- for p in packages %}
+  - services: docker
+    env:
+    - BRANCH={{ v.tag }}
+    - PACKAGE={{ p.package }}
+    - PLUGINS={{ p.plugins | join(',') }}
+{%- endfor %}
+{%- endfor %}
+  
+script:
+- docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
+- FULL_IMAGE_NAME=guangie88/caddy:${BRANCH}_${PACKAGE}
+- |-
+  docker build \
+    -f Dockerfile-no-stats \
+    -t ${FULL_IMAGE_NAME} \
+    --build-arg plugins=${PLUGINS} \
+    github.com/abiosoft/caddy-docker.git#${BRANCH}
+# Just push, doesn't matter if it's TRAVIS_PULL_REQUEST false/true
+- docker push ${FULL_IMAGE_NAME}
+
+branches:
+  only:
+  - master
